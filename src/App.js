@@ -1,15 +1,16 @@
+import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import Home from "./Components/Home/Home";
 import Nav from "./Components/Nav/Nav";
-import { allAnime,category} from "./utils/utils";
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
-  category("action");
-  allAnime();
 	return (
-    <div>
-      <Nav />
-      <Home/>
-		</div>
+		<Router>
+			<Nav />
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route path="/category" component={CategoryPage} />
+			</Switch>
+		</Router>
 	);
 }
 

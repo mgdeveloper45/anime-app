@@ -37,11 +37,11 @@ const Search = () => {
                     <option value="">Category</option>
                 </select>
 			</form>
-			{/* <h1>{singleAnime?.canonicalTitle}</h1>
+			<h1>{singleAnime?.canonicalTitle}</h1>
 			<img src={singleAnime.posterImage?.small} alt="" onClick={()=>setShow(!show)} />
 			{show && (
 				<YouTube videoId={singleAnime?.youtubeVideoId} opts={opts} />
-			)} */}
+			)}
 		</div>
 	);
 };
