@@ -1,12 +1,14 @@
-import Search from "./Components/Search";
-import { allAnime, category } from "./utils/utils";
+import Home from "./Components/Home/Home";
+import Nav from "./Components/Nav/Nav";
+import { allAnime,category} from "./utils/utils";
 
 function App() {
-  // category();
+  category("action");
   allAnime();
 	return (
-		<div>
-			<Search />
+    <div>
+      <Nav />
+      <Home/>
 		</div>
 	);
 }
