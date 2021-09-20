@@ -11,8 +11,6 @@ export const allTrending = async () => {
 			}
 		});
 		return trailer;
-    // console.log("allAnime====>",res)
-    return res.data;
 };
 
 export const searchAnime = async (searchTerm) => {
