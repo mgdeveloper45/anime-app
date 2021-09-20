@@ -2,14 +2,47 @@ import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import Home from "./Components/Home/Home";
 import Nav from "./Components/Nav/Nav";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-function App() {
+import { Container } from "./Styles/Styles";
+import { useEffect, useState } from "react";
+import Modal from "./Components/Modal/Modal";
+import { searchAnime } from "./utils/utils";
+function App(props) {
+	const [searchTerm, setSearchTerm] = useState("");
+	const [searchType, setSearchType] = useState("");
+	const [singleAnime, setSingleAnime] = useState({});
+	const [showModal, setShowModal] = useState(false);
+	const onSearchSubmit = async (searchTerm) => {
+		if (searchTerm !== "") {
+			setSearchTerm(searchTerm);
+			const data = await searchAnime(searchTerm);
+			setSingleAnime(data);
+			setShowModal(true);
+		} else if (searchTerm !== "" && searchType === "category") {
+			setSearchTerm(searchTerm);
+		}
+	};
+
+	// useEffect(() => {
+	//     (async() => {
+	//         const data = await searchAnime(searchTerm);
+	//         setSingleAnime(data);
+	//         // console.log(data);
+	//     })();
+	// }, [searchTerm]);
+
 	return (
 		<Router>
-			<Nav />
-			<Switch>
-				<Route exact path="/" component={Home} />
-				<Route path="/category" component={CategoryPage} />
-			</Switch>
+			<Nav onSearchSubmit={onSearchSubmit}>{props.children}</Nav>
+			{showModal && <Modal singleAnime={singleAnime} setShowModal={setShowModal} />}
+			<Container bgColor="black" pad="0 20px" width="100%">
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route
+						path="/category"
+						component={() => <CategoryPage onSearchSubmit={onSearchSubmit} />}
+					/>
+				</Switch>
+			</Container>
 		</Router>
 	);
 }
