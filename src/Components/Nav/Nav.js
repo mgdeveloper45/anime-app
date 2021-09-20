@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Title } from "../../Styles/Styles";
 import Search from "../Search/Search";
 
-const Nav = ({onSearchSubmit}) => {
+const Nav = ({ onSearchSubmit, setSearchType, setSearchTerm }) => {
 	return (
 		<Container bgColor="lightgray" display="flex" alItm="center">
 			<Link to="/">
@@ -11,7 +11,11 @@ const Nav = ({onSearchSubmit}) => {
 					Anime
 				</Title>
 			</Link>
-			<Search onSearchSubmit={onSearchSubmit}/>
+			<Search
+				onSearchSubmit={onSearchSubmit}
+				setSearchType={setSearchTerm}
+				setSearchType={setSearchType}
+			/>
 		</Container>
 	);
 };
