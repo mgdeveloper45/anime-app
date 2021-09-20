@@ -5,20 +5,25 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";
-import { searchAnime } from "./utils/utils";
+import { searchAnime, categoriesPage } from "./utils/utils";
 function App(props) {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchType, setSearchType] = useState("");
 	const [singleAnime, setSingleAnime] = useState({});
 	const [showModal, setShowModal] = useState(false);
+	const [category, setCategory] = useState([])
+
 	const onSearchSubmit = async (searchTerm) => {
 		if (searchTerm !== "") {
 			setSearchTerm(searchTerm);
 			const data = await searchAnime(searchTerm);
 			setSingleAnime(data);
 			setShowModal(true);
+			
 		} else if (searchTerm !== "" && searchType === "category") {
 			setSearchTerm(searchTerm);
+			const data = await categoriesPage(searchTerm);
+			setCategory(data);
 		}
 	};
 
@@ -39,7 +44,7 @@ function App(props) {
 					<Route exact path="/" component={Home} />
 					<Route
 						path="/category"
-						component={() => <CategoryPage onSearchSubmit={onSearchSubmit} />}
+						component={() => <CategoryPage category={category} onSearchSubmit={onSearchSubmit} />}
 					/>
 				</Switch>
 			</Container>

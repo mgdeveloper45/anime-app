@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { categoriesPage } from '../../utils/utils';
+// import { categoriesPage } from '../../utils/utils';
 import { Container, Img, Title, Glass } from '../../Styles/Styles';
 
-const CategoryPage = () => {
+const CategoryPage = (props) => {
     const [searchTerm, setSearchTerm] = useState([]);
 
     useEffect(() => {
         (async() => {
-            const data = await categoriesPage("action");
+            // const data = await categoriesPage("action");
             // setSearchTerm(data);
-            console.log(data);
-            let attr = data.map((items) => ({
+            // console.log(data);
+            let attr = props.category.map((items) => ({
                 Id: items.id,
                 description: items.attributes.description,
                 title: items.attributes.canonicalTitle,
@@ -30,18 +30,18 @@ const CategoryPage = () => {
             {searchTerm.map((item, idx)=>(
                 <Container width='60%'mrgn='10px 0' fillOpacity='100%'
                     display="flex" alItm='center'jstCnt='space-evenly'key={idx}
-                    bg='rgba( 255, 255, 255, 0.25 )' bckdrpFil='blur( 4px )'
+                    bgColor='rgba(26, 26, 26, 0.25)' bckdrpFil='blur( 4px )'
                     radius='15px' webBF='blur( 4px )'
-                    bdr='1px solid rgba( 255, 255, 255, 0.18 )'
-                    boxShad='6px 8px 12px 0 rgba( 31, 38, 135, 0.37 )'>
+                    bdr='3px solid rgba(140, 140, 140, 0.18)'
+                    boxShad='3px 3px 12px 0 rgba( 51, 51, 51, 0.37 )'>
                     <Container>
-                        <Title size='15px'>{item.title}</Title>
+                        <Title color='rgb(217, 217, 217)'size='15px'>{item.title}</Title>
                         <Img src={item.poster}/>
                     </Container>
                     <Container alSlf='flex-end' width='40%'>
-                        <Title size='18px'>Rating: {item.rating}</Title>
-                        <Title size='18px'>Description:</Title>
-                        <Title size='18px'>{item.description}</Title>
+                        <Title color='rgb(217, 217, 217)'size='18px'>Rating: {item.rating}</Title>
+                        <Title color='rgb(217, 217, 217)'size='18px'>Description:</Title>
+                        <Title color='rgb(217, 217, 217)'size='18px'>{item.description}</Title>
                     </Container>      
                 </Container>
                
