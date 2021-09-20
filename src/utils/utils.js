@@ -14,6 +14,7 @@ export const allTrending = async () => {
     // console.log("allAnime====>",res)
     return res.data;
 };
+
 export const searchAnime = async (searchTerm) => {
 	const data = await fetch(
 		`https://kitsu.io/api/edge/anime?filter[text]=${searchTerm}&page[limit]=1`

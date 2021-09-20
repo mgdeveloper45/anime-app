@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import {allTrending, category } from "../../utils/utils";
+import { Title } from "../../Styles/Styles";
+import { allTrending, category } from "../../utils/utils";
 
 const Row = ({ title }) => {
 	const [rowImages, setRowImages] = useState([]);
 	const [trailer, setTrailer] = useState("");
-	const [show, setShow] = useState(false);
 	useEffect(() => {
 		if (title === "Trending") {
 			(async () => {
@@ -30,7 +30,9 @@ const Row = ({ title }) => {
 
 	return (
 		<div>
-			<h1>{title}</h1>
+			<Title color="white" size="xx-large">
+				{title}
+			</Title>
 			<div style={{ display: "flex" }}>
 				{rowImages?.map((image, index) => (
 					<div key={index}>
@@ -38,8 +40,9 @@ const Row = ({ title }) => {
 							src={image.attributes.posterImage?.tiny}
 							alt=""
 							onClick={() => {
-								setShow(!show);
-								setTrailer(image.attributes?.youtubeVideoId);
+								trailer
+									? setTrailer("")
+									: setTrailer(image.attributes?.youtubeVideoId);
 							}}
 						/>
 					</div>
