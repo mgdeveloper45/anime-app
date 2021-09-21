@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-const Search = ({ onSearchSubmit, setSearchType, setSearchTerm, onChange }) => {
+const Search = ({ onSearchSubmit, onChange }) => {
 	return (
 		<div>
 			<form onSubmit={onSearchSubmit}>

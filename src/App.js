@@ -6,6 +6,7 @@ import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";
 import { searchAnime } from "./utils/utils";
+import Search from "./Components/Search/Search";
 
 function App(props) {
 	const [search, setSearch] = useState({});
@@ -28,13 +29,8 @@ function App(props) {
 
 	return (
 		<Router>
-			<Nav
-				onChange={onChange}
-				onSearchSubmit={onSearchSubmit}
-				// setSearchType={setSearchType}
-				// setSearchTerm={setSearchTerm}
-			>
-				{props.children}
+			<Nav>
+				<Search onChange={onChange} onSearchSubmit={onSearchSubmit} />
 			</Nav>
 			{showModal && (
 				<Modal singleAnime={singleAnime} setShowModal={setShowModal} />
