@@ -5,14 +5,14 @@ import { categoriesPage } from '../../utils/utils';
 import { Img, Title, Content, Category, Info, Poster,CatContainer } from './CatStyles';
 import  styled  from 'styled-components';
 
-const CategoryPage = (props) => {
+const CategoryPage = ({searchValue}) => {
     const [searchTerm, setSearchTerm] = useState([]);
     const [trailer, setTrailer] = useState("");
 
     // const history = useHistory();
     useEffect(() => {
         (async() => {
-            const data = await categoriesPage("action");
+            const data = await categoriesPage(searchValue);
             // setSearchTerm(data);
             console.log(data);
             let attr = data.map((items) => ({
@@ -28,7 +28,8 @@ const CategoryPage = (props) => {
             // history.push("/category");
             // console.log(searchTerm)
         })();
-    }, []);
+    }, [searchValue]);
+    
 
     const opts = {
 		height: "390",
