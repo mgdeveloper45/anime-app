@@ -6,6 +6,7 @@ const Search = ({ onSearchSubmit, onChange, search }) => {
 		<div>
 			<form
 				onSubmit={(e) => {
+					e.preventDefault();
 					if (search.text !== "" && search.type === "title") {
 						onSearchSubmit();
 					} else if (search.text !== "" && search.type === "category") {

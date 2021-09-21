@@ -5,7 +5,6 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	useHistory,
 } from "react-router-dom";
 import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
@@ -18,17 +17,10 @@ function App(props) {
 	const [singleAnime, setSingleAnime] = useState({});
 	const [showModal, setShowModal] = useState(false);
 
-	const history = useHistory();
-
-	const onSearchSubmit = async (e) => {
-		e.preventDefault();
-		if (search.text !== "" && search.type === "title") {
-			const data = await searchAnime(search.text);
-			setSingleAnime(data);
-			setShowModal(true);
-		} else if (search.text !== "" && search.type === "category") {
-			history.push("/category");
-		}
+	const onSearchSubmit = async () => {
+		const data = await searchAnime(search.text);
+		setSingleAnime(data);
+		setShowModal(true);
 	};
 
 	const onChange = (e) => {
