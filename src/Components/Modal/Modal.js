@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../../Styles/Styles";
 
-const Modal = ({singleAnime,setShowModal}) => {
+const Modal = ({singleAnime, categoriesPage, setShowModal}) => {
 	return (
 		<div>
 			<h1>{singleAnime?.canonicalTitle}</h1>
