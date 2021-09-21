@@ -6,6 +6,12 @@ export const CatContainer = styled.div`
     flex-direction: column;
 `;
 
+export const Modal = styled.div`
+    height: 60%vh;
+    width: 60%vw;
+    z-index: 10;
+`;
+
 export const Category = styled.div`
     display: flex; 
     align-items: center;

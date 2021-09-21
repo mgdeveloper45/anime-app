@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import YouTube from "react-youtube";
 // import { useHistory } from "react-router-dom";
 import { categoriesPage } from '../../utils/utils';
-import { Img, Title, Content, Category, Info, Poster,CatContainer } from './CatStyles';
-import  styled  from 'styled-components';
+import { Img, Title, Content, Category, Info, Modal, Poster,CatContainer } from './CatStyles';
+
 
 const CategoryPage = (props) => {
     const [searchTerm, setSearchTerm] = useState([]);
@@ -54,7 +54,9 @@ const CategoryPage = (props) => {
                     </Content> 
                 </Category>
             ))}
-            {trailer && <YouTube videoId={trailer} opts={opts} />}
+            <Modal>
+               {trailer && <YouTube videoId={trailer} opts={opts} />}
+            </Modal>
         </CatContainer>
     )
 }
