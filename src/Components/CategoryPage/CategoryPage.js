@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { categoriesPage } from '../../utils/utils';
 import { Container, Img, Title, Glass } from '../../Styles/Styles';
 
-const CategoryPage = () => {
+const CategoryPage = ({searchValue}) => {
     const [searchTerm, setSearchTerm] = useState([]);
 
     useEffect(() => {
         (async() => {
-            const data = await categoriesPage("action");
+            const data = await categoriesPage(searchValue);
             // setSearchTerm(data);
             console.log(data);
             let attr = data.map((items) => ({
@@ -22,7 +22,7 @@ const CategoryPage = () => {
             setSearchTerm(attr);
             // console.log(searchTerm)
         })();
-    }, []);
+    }, [searchValue]);
     
     return (
 
