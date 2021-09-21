@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import { Title } from "../../Styles/Styles";
+import { Container, Title } from "../../Styles/Styles";
 import { allTrending, category } from "../../utils/utils";
 
 const Row = ({ title }) => {
@@ -29,11 +29,11 @@ const Row = ({ title }) => {
 	};
 
 	return (
-		<div>
-			<Title color="white" size="xx-large">
+		<Container width="80%" display="flex" direction="column" wrap="wrap">
+			<Title color="white" size="xx-large" margin="0" pad="20px 0">
 				{title}
 			</Title>
-			<div style={{ display: "flex" }}>
+			<Container display="flex" jstCnt="space-around">
 				{rowImages?.map((image, index) => (
 					<div key={index}>
 						<img
@@ -47,9 +47,9 @@ const Row = ({ title }) => {
 						/>
 					</div>
 				))}
-			</div>
+			</Container>
 			{trailer && <YouTube videoId={trailer} opts={opts} />}
-		</div>
+		</Container>
 	);
 };
 

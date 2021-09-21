@@ -1,19 +1,20 @@
 import React from 'react'
+import { Container } from '../../Styles/Styles';
 import Row from '../Row/Row'
 
 const Home = () => {
     return (
-			<div>
+			<Container display="flex" direction="column" alItm="center">
 				<Row title="Trending" />
-				<Row title="music" />
-				<Row title="slice of life" />
-				<Row title="cyberpunk" />
-				<Row title="josei" />
-				<Row title="psychological" />
-				<Row title="isekai" />
-				<Row title="supernatural" />
-				<Row title="drama" />
-			</div>
+				<Row title="Action" />
+				<Row title="Comedy" />
+				<Row title="Cyberpunk" />
+				<Row title="Josei" />
+				<Row title="Psychological" />
+				<Row title="Isekai" />
+				<Row title="Supernatural" />
+				<Row title="Drama" />
+			</Container>
 		);
 }
 

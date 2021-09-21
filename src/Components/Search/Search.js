@@ -4,8 +4,6 @@ import { searchAnime } from "../../utils/utils";
 
 const Search = ({ onSearchSubmit, setSearchType, setSearchTerm }) => {
 	const [search, setSearch] = useState({ searchTerm: "", Type: "" });
-	const [singleAnime, setSingleAnime] = useState({});
-	const [show, setShow] = useState(false);
 	// useEffect(() => {
 	//     (async() => {
 	//         const data = await searchAnime(searchTerm);
@@ -13,14 +11,6 @@ const Search = ({ onSearchSubmit, setSearchType, setSearchTerm }) => {
 	//         // console.log(data);
 	//     })();
 	// }, [searchTerm]);
-
-	const opts = {
-		height: "390",
-		width: "100%",
-		playerVars: {
-			autoplay: 1,
-		},
-	};
 
 	const handleChange = (e) => {
 		setSearch({ ...search, [e.target.name]: e.target.value });
