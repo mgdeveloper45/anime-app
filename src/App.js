@@ -6,10 +6,10 @@ import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";
 import { searchAnime } from "./utils/utils";
+
 function App(props) {
 	const [searchTerm, setSearchTerm] = useState("");
-	const [searchType, setSearchType] = useState("");
-	
+	const [searchType, setSearchType] = useState("");	
 	const [singleAnime, setSingleAnime] = useState({});
 	const [showModal, setShowModal] = useState(false);
 	const onSearchSubmit = async (searchTerm) => {
