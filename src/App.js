@@ -1,7 +1,7 @@
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import Home from "./Components/Home/Home";
 import Nav from "./Components/Nav/Nav";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, useHistory } from "react-router-dom";
 import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";

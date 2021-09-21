@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import YouTube from "react-youtube";
+// import { useHistory } from "react-router-dom";
 import { categoriesPage } from '../../utils/utils';
-import { Container, Img, Title, Glass } from '../../Styles/Styles';
+import { Img, Title, Content, Category, Info, Poster,CatContainer } from './CatStyles';
+import  styled  from 'styled-components';
 
-const CategoryPage = () => {
+const CategoryPage = (props) => {
     const [searchTerm, setSearchTerm] = useState([]);
+    const [trailer, setTrailer] = useState("");
 
+    // const history = useHistory();
     useEffect(() => {
         (async() => {
             const data = await categoriesPage("action");
@@ -16,37 +21,41 @@ const CategoryPage = () => {
                 title: items.attributes.canonicalTitle,
                 rating: items.attributes.ageRating,
                 poster: items.attributes.posterImage.medium,
-                video: items.attributes.youtubeVideoId
+                video: items.attributes?.youtubeVideoId
             }
             ))
             setSearchTerm(attr);
+            // history.push("/category");
             // console.log(searchTerm)
         })();
     }, []);
-    
+
+    const opts = {
+		height: "390",
+		width: "100%",
+		playerVars: {
+			autoplay: 1,
+		},
+	};
     return (
 
-        <Container display='flex' alItm='center' direction='column'>
+        <CatContainer >
             {searchTerm.map((item, idx)=>(
-                <Container width='60%'mrgn='10px 0' fillOpacity='100%'
-                    display="flex" alItm='center'jstCnt='space-evenly'key={idx}
-                    bg='rgba( 255, 255, 255, 0.25 )' bckdrpFil='blur( 4px )'
-                    radius='15px' webBF='blur( 4px )'
-                    bdr='1px solid rgba( 255, 255, 255, 0.18 )'
-                    boxShad='6px 8px 12px 0 rgba( 31, 38, 135, 0.37 )'>
-                    <Container>
-                        <Title size='15px'>{item.title}</Title>
+                <Category onClick={trailer =>
+                    setTrailer(item.video)} key={idx}>
+                    <Poster>
+                        <Title>{item.title}</Title>
                         <Img src={item.poster}/>
-                    </Container>
-                    <Container alSlf='flex-end' width='40%'>
-                        <Title size='18px'>Rating: {item.rating}</Title>
-                        <Title size='18px'>Description:</Title>
-                        <Title size='18px'>{item.description}</Title>
-                    </Container>      
-                </Container>
-               
+                    </Poster>
+                    <Content>
+                        <Info>Rating: {item.rating}</Info>
+                        <Info>Description:</Info>
+                        <Info>{item.description}</Info>
+                    </Content> 
+                </Category>
             ))}
-        </Container>
+            {trailer && <YouTube videoId={trailer} opts={opts} />}
+        </CatContainer>
     )
 }
 
