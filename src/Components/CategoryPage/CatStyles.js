@@ -7,9 +7,17 @@ export const CatContainer = styled.div`
 `;
 
 export const Modal = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 60%vh;
     width: 60%vw;
-    z-index: 10;
+    z-index: 1;
 `;
 
 export const Category = styled.div`

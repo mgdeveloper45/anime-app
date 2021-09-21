@@ -32,8 +32,8 @@ const CategoryPage = ({searchValue}) => {
     
 
     const opts = {
-		height: "390",
-		width: "100%",
+		// height: "390",
+		// width: "100%",
 		playerVars: {
 			autoplay: 1,
 		},
