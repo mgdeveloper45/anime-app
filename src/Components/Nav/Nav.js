@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Title } from "../../Styles/Styles";
-import Search from "../Search/Search";
 
-const Nav = ({ onSearchSubmit, setSearchType, setSearchTerm }) => {
+
+const Nav = ({ children }) => {
 	return (
 		<Container bgColor="lightgray" display="flex" alItm="center">
 			<Link to="/">
@@ -11,11 +11,7 @@ const Nav = ({ onSearchSubmit, setSearchType, setSearchTerm }) => {
 					Anime
 				</Title>
 			</Link>
-			<Search
-				onSearchSubmit={onSearchSubmit}
-				setSearchType={setSearchTerm}
-				setSearchType={setSearchType}
-			/>
+			{children}
 		</Container>
 	);
 };
