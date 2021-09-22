@@ -14,9 +14,19 @@ const Search = ({ onSearchSubmit, onChange, search }) => {
 					}
 				}}
 			>
-				<input name="text" type="text" onChange={onChange} />
-				<select name="type" onChange={onChange}>
-					<option value="">Search By</option>
+				<input
+					name="text"
+					placeholder="search"
+					type="text"
+					onChange={onChange}
+				/>
+				<select
+					name="type"
+					onChange={onChange}
+				>
+					<option value="" selected disabled hidden>
+						Choose here
+					</option>
 					<option value="title">Title</option>
 					<option value="category">Category</option>
 				</select>
