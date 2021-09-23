@@ -28,19 +28,42 @@ export const Title = styled.h5`
 	color: ${(props) => props.color};
 	width: ${(props) => props.width};
 	text-align: ${(props) => props.txtAlign};
+	align-self: ${(props) => props.alSlf};
 	margin: ${(props) => props.margin};
 	padding: ${(props) => props.pad};
+
 	/* white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis; */
 `;
 
 export const Img = styled.img`
+	height: 100%;
+	object-fit: contain;
+	max-width: 130px;
+	transition: transform 450ms;
+	margin-right: 10px;
+	border-radius: 15px;
+	&:hover {
+		transform: scale(1.08);
+	}
 	/* width: 100%;
 	height: 500px; */
 	/* width: 150px; */
 	/* height: 150px; */
 	/* object-fit: contain; */
+`;
+
+export const TrendingImg = styled.img`
+	max-height: 200px;
+	width: 100%;
+	object-fit: contain;
+	transition: transform 450ms;
+	margin-right: 5px;
+	border-radius: 15px;
+	&:hover {
+		transform: scale(1.15);
+	}
 `;
 
 export const Glass = styled.div`
@@ -63,8 +86,23 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
-	font-size: 32px;
-	width: 350px;
+	font-size: 25px;
+	width: 450px;
 	border: none;
 	outline: none;
+	border-radius: 10px;
 `;
+
+export const Select = styled.select`
+	font-size: 25px;
+	margin-left: 10px;
+	/* width: 450px; */
+	border: none;
+	border-radius: 10px;
+	outline: none;
+`;
+
+export const Form = styled.form`
+	display:flex;
+
+`
