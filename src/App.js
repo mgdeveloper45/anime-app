@@ -16,6 +16,7 @@ function App(props) {
 	const [search, setSearch] = useState({});
 	const [singleAnime, setSingleAnime] = useState({});
 	const [showModal, setShowModal] = useState(false);
+	const [homeCategory, setHomeCategory] = useState("");
 
 	const onSearchSubmit = async () => {
 		const data = await searchAnime(search.text);
@@ -39,12 +40,12 @@ function App(props) {
 			{showModal && (
 				<Modal singleAnime={singleAnime} setShowModal={setShowModal} />
 			)}
-			<Container bgColor="black" pad="0 20px" width="100%">
+			<Container bgColor="black" pad="0 20px" >
 				<Switch>
-					<Route exact path="/" component={Home} />
+					<Route exact path="/" component={() => <Home setHomeCategory={setHomeCategory}/>} />
 					<Route
 						path="/category"
-						component={() => <CategoryPage searchValue={search.text} />}
+						component={() => <CategoryPage searchValue={search.text||homeCategory} />}
 					/>
 				</Switch>
 			</Container>

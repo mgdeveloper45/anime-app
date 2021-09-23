@@ -2,18 +2,23 @@ import React from "react";
 import { Container } from "../../Styles/Styles";
 import Row from "../Row/Row";
 
-const Home = () => {
+const Home = ({ setHomeCategory }) => {
+	const titles = [
+		"Trending",
+		"Action",
+		"Comedy",
+		"Josei",
+		"Psychological",
+		"Isekai",
+		"Supernatural",
+		"Drama",
+		"Cyberpunk",
+	];
 	return (
 		<Container display="flex" direction="column" alItm="center">
-			<Row title="Trending" />
-			<Row title="Action" />
-			<Row title="Comedy" />
-			<Row title="Cyberpunk" />
-			<Row title="Josei" />
-			<Row title="Psychological" />
-			<Row title="Isekai" />
-			<Row title="Supernatural" />
-			<Row title="Drama" />
+			{titles.map((title, index) => (
+				<Row key={index} title={title} setHomeCategory={setHomeCategory} />
+			))}
 		</Container>
 	);
 };
