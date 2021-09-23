@@ -13,19 +13,23 @@ const Search = ({ onSearchSubmit, onChange, search }) => {
 					} else if (search.text !== "" && search.type === "category") {
 						history.push("/category");
 					}
+
+					document.querySelector("#searchBar").value = "";
+					document.querySelector("#selectOption").value = "";
 				}}
 			>
 				<Container bgColor="white" pad="0 10px" radius="10px">
 					<Input
+						id="searchBar"
 						name="text"
 						placeholder="search"
 						type="text"
 						onChange={onChange}
 					/>
-					<BsSearch style={{color:"gray"}}/>
+					<BsSearch style={{ color: "gray" }} />
 				</Container>
-				<Select name="type" onChange={onChange} >
-					<option value="" selected disabled >
+				<Select id="selectOption" name="type" onChange={onChange}>
+					<option value="" selected disabled>
 						select
 					</option>
 					<option value="title">Title</option>

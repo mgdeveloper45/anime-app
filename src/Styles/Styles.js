@@ -23,6 +23,7 @@ export const Container = styled.div`
 	position: ${(props) => props.sticky};
 	top: ${(props) => props.top};
 	overflow-x: ${(props) => props.scroll};
+	z-index: ${(props) => props.zIndex};
 	overflow-y: hidden;
 	::-webkit-scrollbar {
 		display: none;
