@@ -28,7 +28,6 @@ export const category = async (searchTerm) => {
 		`https://kitsu.io/api/edge/anime?filter[categories]=${searchTerm}&page[limit]=10`
 	);
 	const res = await data.json();
-	console.log("From category");
 	return res.data;
 };
 

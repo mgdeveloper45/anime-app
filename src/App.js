@@ -24,7 +24,7 @@ function App(props) {
 	const onChange = (e) => {
 		setSearch({ ...search, [e.target.name]: e.target.value });
 	};
-
+	
 	return (
 		<Router>
 			<Nav>
