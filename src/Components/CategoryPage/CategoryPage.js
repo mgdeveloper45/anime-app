@@ -34,7 +34,7 @@ const CategoryPage = ({searchValue}) => {
 
         <CatContainer >
             {searchTerm.map((item, idx)=>(
-                <Category onClick={trailer =>
+                <Category onClick={(trailer) =>  
                     setTrailer(item.video)} key={idx}>
                     <Poster>
                         <Title>{item.title}</Title>
@@ -47,7 +47,7 @@ const CategoryPage = ({searchValue}) => {
                     </Content> 
                 </Category>
             ))}
-            {trailer &&  <CatContainer style={{webkitFilter: "blur(8px)", filter:"blur(8px)"}}/> && (
+            {trailer && (
                 
                 <Modal>
                     <Video>

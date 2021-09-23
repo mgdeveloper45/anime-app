@@ -39,13 +39,13 @@ export const Category = styled.div`
     justify-content: space-evenly;
     width: 60%;
     margin:15px 0;
-    fill-opacity: 100%;
+    opacity: .8;
     background-color:rgba(64, 64, 64, 0.5); 
     backdrop-filter: blur( 4px );
     border-radius: 15px; 
     -webkit-backdrop-filter: blur( 4px );
     border: 3px solid rgba(140, 140, 140, 0.18);
-    box-shadow: 9px 3px 18px 0 rgba( 77, 77, 77, 0.37 ), -9px -3px 18px 0 rgba( 77, 77, 77, 0.37 );
+    box-shadow: 9px 3px 18px 0 rgba( 138, 138, 138, 0.37 ), -9px -3px 18px 0 rgba( 138, 138, 138, 0.37 );
 `;
 
 export const Title = styled.h4`
