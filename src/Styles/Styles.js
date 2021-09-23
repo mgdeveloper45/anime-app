@@ -20,6 +20,13 @@ export const Container = styled.div`
 	backdrop-filter: ${(props) => props.bckdrpFil};
 	-webkit-backdrop-filter: ${(props) => props.webBF};
 	fill-opacity: ${(props) => props.fillOpacity};
+	position: ${(props) => props.sticky};
+	top: ${(props) => props.top};
+	overflow-x: ${(props) => props.scroll};
+	overflow-y: hidden;
+	::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const Title = styled.h5`
@@ -38,28 +45,27 @@ export const Title = styled.h5`
 `;
 
 export const Img = styled.img`
-	height: 100%;
+	/* height: 100%;
+	max-width: 130px; */
+	max-height: 200px;
+	/* width: 100%; */
 	object-fit: contain;
-	max-width: 130px;
 	transition: transform 450ms;
-	margin-right: 10px;
+	margin-right: 8px;
 	border-radius: 15px;
 	&:hover {
 		transform: scale(1.08);
 	}
-	/* width: 100%;
-	height: 500px; */
-	/* width: 150px; */
-	/* height: 150px; */
-	/* object-fit: contain; */
 `;
 
 export const TrendingImg = styled.img`
-	max-height: 200px;
-	width: 100%;
-	object-fit: contain;
+	max-height: 300px;
+	/* width: 100%; */
+	overflow-y: hidden;
+	overflow-x: scroll;
+	/* object-fit: contain; */
 	transition: transform 450ms;
-	margin-right: 5px;
+	margin-right: 15px;
 	border-radius: 15px;
 	&:hover {
 		transform: scale(1.15);
@@ -103,6 +109,5 @@ export const Select = styled.select`
 `;
 
 export const Form = styled.form`
-	display:flex;
-
-`
+	display: flex;
+`;

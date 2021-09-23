@@ -60,8 +60,10 @@ const Row = ({ title, setHomeCategory }) => {
 			</Title>
 			<Container
 				display="flex"
-				jstCnt="space-around"
-				wrap="wrap"
+				// jstCnt="space-around"
+				scroll="scroll"
+				width= "100%"
+				// wrap="wrap"
 				// bdr="1px solid red"
 			>
 				{rowImages?.map((image, index) => (
