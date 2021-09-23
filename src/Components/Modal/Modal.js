@@ -28,4 +28,4 @@ const Modal = ({singleAnime, categoriesPage, setShowModal}) => {
 	);
 };
 
-export default SingleModal;
+export default Modal;

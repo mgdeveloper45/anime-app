@@ -18,7 +18,6 @@ function App(props) {
 		const data = await searchAnime(search.text);
 		setSingleAnime(data);
 		setShowModal(true);
-		setSearch({});
 	};
 
 	const onChange = (e) => {
