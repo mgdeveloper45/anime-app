@@ -26,13 +26,6 @@ export const category = async (searchTerm) => {
 		`https://kitsu.io/api/edge/anime?filter[categories]=${searchTerm}&page[limit]=10`
 	);
 	const res = await data.json();
-	// const trailer = [];
-	// res.data.map((item) => {
-	// 	let video = item.attributes.youtubeVideoId;
-	// 	if (video) {
-	// 		trailer.push(item);
-	// 	}
-	// });
 	return res.data;
 };
 

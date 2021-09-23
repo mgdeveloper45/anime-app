@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import YouTube from "react-youtube";
-// import { useHistory } from "react-router-dom";
 import { categoriesPage } from '../../utils/utils';
-import { Img, Title, Content, Category, Info, Modal, Poster,CatContainer } from './CatStyles';
+import { Img, Button, CatContainer, Category, Content, Info, Modal, Poster, Title, Video } from './CatStyles';
 
 
 const CategoryPage = ({searchValue}) => {
     const [searchTerm, setSearchTerm] = useState([]);
     const [trailer, setTrailer] = useState("");
 
-    // const history = useHistory();
     useEffect(() => {
         (async() => {
             const data = await categoriesPage(searchValue);
-            // setSearchTerm(data);
-            console.log(data);
+            console.log(data)
             let attr = data.map((items) => ({
                 Id: items.id,
                 description: items.attributes.description,
@@ -25,15 +22,10 @@ const CategoryPage = ({searchValue}) => {
             }
             ))
             setSearchTerm(attr);
-            // history.push("/category");
-            // console.log(searchTerm)
         })();
     }, [searchValue]);
-    
 
     const opts = {
-		// height: "390",
-		// width: "100%",
 		playerVars: {
 			autoplay: 1,
 		},
@@ -55,9 +47,16 @@ const CategoryPage = ({searchValue}) => {
                     </Content> 
                 </Category>
             ))}
-            <Modal>
-               {trailer && <YouTube videoId={trailer} opts={opts} />}
-            </Modal>
+            {trailer &&  <CatContainer style={{webkitFilter: "blur(8px)", filter:"blur(8px)"}}/> && (
+                
+                <Modal>
+                    <Video>
+                        <YouTube videoId={trailer} opts={opts}/>
+                        <Button onClick={()=> setTrailer("")}>X</Button> 
+                    </Video>
+                </Modal>
+            )}
+                
         </CatContainer>
     )
 }

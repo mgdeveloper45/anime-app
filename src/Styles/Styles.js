@@ -30,36 +30,39 @@ export const Title = styled.h5`
 	text-align: ${(props) => props.txtAlign};
 	margin: ${(props) => props.margin};
 	padding: ${(props) => props.pad};
+	align-self: ${(props) => props.alSlf};
 	/* white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis; */
 `;
 
 export const Img = styled.img`
-	/* width: 100%;
-	height: 500px; */
-	/* width: 150px; */
-	/* height: 150px; */
-	/* object-fit: contain; */
+	height: 250px; 
+	width: 250px;
+	object-fit: contain;
 `;
 
 export const Glass = styled.div`
-	background: rgba(255, 255, 255, 0.25);
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 500px;
+	background-color: rgba(0, 0, 0, .8);
+	box-shadow: 3px 3px 12px 0 rgba(31, 38, 135, 0.37);
 	backdrop-filter: blur(4px);
 	-webkit-backdrop-filter: blur(4px);
-	border-radius: 10px;
-	border: 1px solid rgba(255, 255, 255, 0.18);
+	/* border-radius: 10px; */
+	border: 5px solid rgba(255, 255, 255, 0.18);
 `;
 
 export const Button = styled.button`
-	background-color: ${(props) => props.bgColor};
-	border-radius: 5px;
-	border: none;
+	background-color: red;
+	height: 30px;
 	padding: 5px;
 	font-weight: 700;
 	font-size: medium;
 	cursor: pointer;
+	margin: 35px;
 `;
 
 export const Input = styled.input`
