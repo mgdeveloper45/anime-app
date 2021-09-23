@@ -20,6 +20,14 @@ export const Container = styled.div`
 	backdrop-filter: ${(props) => props.bckdrpFil};
 	-webkit-backdrop-filter: ${(props) => props.webBF};
 	fill-opacity: ${(props) => props.fillOpacity};
+	position: ${(props) => props.sticky};
+	top: ${(props) => props.top};
+	overflow-x: ${(props) => props.scroll};
+	z-index: ${(props) => props.zIndex};
+	overflow-y: hidden;
+	::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const Title = styled.h5`
@@ -28,6 +36,7 @@ export const Title = styled.h5`
 	color: ${(props) => props.color};
 	width: ${(props) => props.width};
 	text-align: ${(props) => props.txtAlign};
+	align-self: ${(props) => props.alSlf};
 	margin: ${(props) => props.margin};
 	padding: ${(props) => props.pad};
 	align-self: ${(props) => props.alSlf};
@@ -37,9 +46,31 @@ export const Title = styled.h5`
 `;
 
 export const Img = styled.img`
-	height: 250px; 
-	width: 250px;
+	/* height: 100%;
+	max-width: 130px; */
+	max-height: 200px;
+	/* width: 100%; */
 	object-fit: contain;
+	transition: transform 450ms;
+	margin-right: 8px;
+	border-radius: 15px;
+	&:hover {
+		transform: scale(1.08);
+	}
+`;
+
+export const TrendingImg = styled.img`
+	max-height: 300px;
+	/* width: 100%; */
+	overflow-y: hidden;
+	overflow-x: scroll;
+	/* object-fit: contain; */
+	transition: transform 450ms;
+	margin-right: 15px;
+	border-radius: 15px;
+	&:hover {
+		transform: scale(1.15);
+	}
 `;
 
 export const Glass = styled.div`
@@ -66,8 +97,22 @@ export const Button = styled.button`
 `;
 
 export const Input = styled.input`
-	font-size: 32px;
-	width: 350px;
+	font-size: 25px;
+	width: 450px;
 	border: none;
 	outline: none;
+	border-radius: 10px;
+`;
+
+export const Select = styled.select`
+	font-size: 25px;
+	margin-left: 10px;
+	/* width: 450px; */
+	border: none;
+	border-radius: 10px;
+	outline: none;
+`;
+
+export const Form = styled.form`
+	display: flex;
 `;

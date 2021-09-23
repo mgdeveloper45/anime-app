@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import YouTube from "react-youtube";
-import { Container, Title } from "../../Styles/Styles";
+import { Container, Img, Title, TrendingImg } from "../../Styles/Styles";
 import { allTrending, category } from "../../utils/utils";
 
-const Row = ({ title }) => {
+const Row = ({ title, setHomeCategory }) => {
 	const [rowImages, setRowImages] = useState([]);
 	const [trailer, setTrailer] = useState("");
+	const history = useHistory();
 	useEffect(() => {
 		if (title === "Trending") {
 			(async () => {
@@ -28,23 +30,53 @@ const Row = ({ title }) => {
 		},
 	};
 
+	const handleImageClick = (image) => {
+		trailer ? setTrailer("") : setTrailer(image.attributes?.youtubeVideoId);
+	}
+
+	const searchCategory = () => {
+		setHomeCategory(title);
+		history.push(`/category`);
+	};
+
+
 	return (
-		<Container width="80%" display="flex" direction="column" wrap="wrap">
-			<Title color="white" size="xx-large" margin="0" pad="20px 0">
-				{title}
+		<Container
+			width="80%"
+			display="flex"
+			direction="column"
+			// alItm="center"
+			// bdr="1px solid blue"
+		>
+			<Title
+				alSlf="flex-start"
+				color="white"
+				size="xx-large"
+				margin="0"
+				pad="20px 0"
+				onClick={searchCategory}
+			>
+				{title.toUpperCase()}
 			</Title>
-			<Container display="flex" jstCnt="space-around">
+			<Container
+				display="flex"
+				// jstCnt="space-around"
+				scroll="scroll"
+				width= "100%"
+				// wrap="wrap"
+				// bdr="1px solid red"
+			>
 				{rowImages?.map((image, index) => (
 					<div key={index}>
-						<img
-							src={image.attributes.posterImage?.tiny}
-							alt=""
-							onClick={() => {
-								trailer
-									? setTrailer("")
-									: setTrailer(image.attributes?.youtubeVideoId);
-							}}
-						/>
+						{title === "Trending" ? (
+							<TrendingImg src={image.attributes.posterImage?.large} onClick={() => handleImageClick(image)} alt="" />
+						) : (
+							<Img
+								src={image.attributes.posterImage?.large}
+								alt=""
+								onClick={()=>handleImageClick(image)}
+							/>
+						)}
 					</div>
 				))}
 			</Container>

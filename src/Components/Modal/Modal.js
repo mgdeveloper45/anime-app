@@ -2,7 +2,8 @@ import React from "react";
 import { Button } from "../../Styles/Styles";
 import {Category, Content, Img, Info, Poster, Title } from "../CategoryPage/CatStyles";
 
-const SingleModal = ({singleAnime, categoriesPage, setShowModal}) => {
+const Modal = ({singleAnime, categoriesPage, setShowModal}) => {
+	
 	return (
 		// <Glass>
 		// 	<Container width='250px'>
