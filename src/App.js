@@ -1,11 +1,7 @@
 import CategoryPage from "./Components/CategoryPage/CategoryPage";
 import Home from "./Components/Home/Home";
 import Nav from "./Components/Nav/Nav";
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "./Styles/Styles";
 import { useEffect, useState } from "react";
 import Modal from "./Components/Modal/Modal";
@@ -22,6 +18,7 @@ function App(props) {
 		const data = await searchAnime(search.text);
 		setSingleAnime(data);
 		setShowModal(true);
+		setSearch({});
 	};
 
 	const onChange = (e) => {
@@ -40,13 +37,14 @@ function App(props) {
 			{showModal && (
 				<Modal singleAnime={singleAnime} setShowModal={setShowModal} />
 			)}
-			<Container bgColor="black" pad="0 20px" >
+			<Container bgColor="black" pad="0 20px">
 				<Switch>
-					<Route exact path="/" component={() => <Home setHomeCategory={setHomeCategory}/>} />
-					<Route
-						path="/category"
-						component={() => <CategoryPage searchValue={search.text||homeCategory} />}
-					/>
+					<Route exact path="/">
+						<Home setHomeCategory={setHomeCategory} />
+					</Route>
+					<Route path="/category">
+						<CategoryPage searchValue={search.text || homeCategory} />
+					</Route>
 				</Switch>
 			</Container>
 		</Router>

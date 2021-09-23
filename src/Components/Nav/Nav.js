@@ -14,6 +14,7 @@ const Nav = ({ children }) => {
 			height="10vh"
 			top="0"
 			sticky="sticky"
+			zIndex="1"
 		>
 			<Link to="/" style={{textDecoration: "none"}}>
 				<Title size="xx-large" margin="0" pad="0 150px 0 0" color="black">
