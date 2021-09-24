@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { device } from "./device";
 
 export const Container = styled.div`
+	min-width: ${(props)=>props.minWidth};
 	width: ${(props) => props.width};
 	height: ${(props) => props.height};
 	background-color: ${(props) => props.bgColor};
@@ -46,10 +48,7 @@ export const Title = styled.h5`
 `;
 
 export const Img = styled.img`
-	/* height: 100%;
-	max-width: 130px; */
 	max-height: 200px;
-	/* width: 100%; */
 	object-fit: contain;
 	transition: transform 450ms;
 	margin-right: 8px;
@@ -61,10 +60,8 @@ export const Img = styled.img`
 
 export const TrendingImg = styled.img`
 	max-height: 300px;
-	/* width: 100%; */
 	overflow-y: hidden;
 	overflow-x: scroll;
-	/* object-fit: contain; */
 	transition: transform 450ms;
 	margin-right: 15px;
 	border-radius: 15px;
@@ -98,7 +95,7 @@ export const Button = styled.button`
 
 export const Input = styled.input`
 	font-size: 25px;
-	width: 450px;
+	/* min-width: 320px; */
 	border: none;
 	outline: none;
 	border-radius: 10px;
@@ -107,7 +104,6 @@ export const Input = styled.input`
 export const Select = styled.select`
 	font-size: 25px;
 	margin-left: 10px;
-	/* width: 450px; */
 	border: none;
 	border-radius: 10px;
 	outline: none;
@@ -115,4 +111,21 @@ export const Select = styled.select`
 
 export const Form = styled.form`
 	display: flex;
+	flex-direction: column;
+	border:1px solid blue;
+	@media ${device.mobileL} {
+		max-width: 400px;
+		max-height: 10vh;
+		justify-content: space-around;
+	}
+	@media ${device.laptop} {
+		max-width: 800px;
+		flex-direction: row;
+		/* align-items: center; */
+	}
+	@media ${device.desktop} {
+		max-width: 1400px;
+		flex-direction: row;
+		/* align-items: center; */
+	}
 `;

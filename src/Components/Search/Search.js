@@ -1,25 +1,30 @@
 import { useHistory } from "react-router-dom";
 import { Container, Input, Select, Form } from "../../Styles/Styles";
 import { BsSearch } from "react-icons/bs";
+import {
+	NavInput,
+	FormContainer,
+	InputContainer,
+	NavSelect,
+} from "../Nav/NavStyles";
 const Search = ({ onSearchSubmit, onChange, search }) => {
 	const history = useHistory();
 	return (
-		<div>
-			<Form
-				onSubmit={(e) => {
-					e.preventDefault();
-					if (search.text !== "" && search.type === "title") {
-						onSearchSubmit();
-					} else if (search.text !== "" && search.type === "category") {
-						history.push("/category");
-					}
-
-					document.querySelector("#searchBar").value = "";
-					document.querySelector("#selectOption").value = "";
-				}}
-			>
-				<Container bgColor="white" pad="0 10px" radius="10px">
-					<Input
+		<form
+			onSubmit={(e) => {
+				e.preventDefault();
+				if (search.text !== "" && search.type === "category") {
+					history.push("/category");
+				} else if (search.text !== "") {
+					onSearchSubmit();
+				} else alert("please enter text");
+				document.querySelector("#searchBar").value = "";
+				document.querySelector("#selectOption").value = "";
+			}}
+		>
+			<FormContainer>
+				<InputContainer>
+					<NavInput
 						id="searchBar"
 						name="text"
 						placeholder="search"
@@ -27,16 +32,18 @@ const Search = ({ onSearchSubmit, onChange, search }) => {
 						onChange={onChange}
 					/>
 					<BsSearch style={{ color: "gray" }} />
-				</Container>
-				<Select id="selectOption" name="type" onChange={onChange}>
-					<option value="" selected disabled>
-						select
-					</option>
-					<option value="title">Title</option>
-					<option value="category">Category</option>
-				</Select>
-			</Form>
-		</div>
+				</InputContainer>
+				<div>
+					<NavSelect id="selectOption" name="type" onChange={onChange}>
+						<option value="" selected disabled>
+							select
+						</option>
+						<option value="title">Title</option>
+						<option value="category">Category</option>
+					</NavSelect>
+				</div>
+			</FormContainer>
+		</form>
 	);
 };
 
