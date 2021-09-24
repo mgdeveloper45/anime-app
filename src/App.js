@@ -36,7 +36,7 @@ function App(props) {
 			{showModal && (
 				<Modal singleAnime={singleAnime} setShowModal={setShowModal} />
 			)}
-			<Container bgColor="black" pad="0 20px">
+			<Container bgColor="black" pad="0 20px" minWidth="320px">
 				<Switch>
 					<Route exact path="/">
 						<Home setHomeCategory={setHomeCategory} />

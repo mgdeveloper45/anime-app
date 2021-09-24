@@ -1,28 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Container, Title } from "../../Styles/Styles";
-
+import { NavContainer, NavItems, NavTitle } from "./NavStyles";
 
 const Nav = ({ children }) => {
 	return (
-		<Container
-			bgColor="lightgray"
-			display="flex"
-			alItm="center"
-			// alCnt="center"
-			jstCnt="center"
-			height="10vh"
-			top="0"
-			sticky="sticky"
-			zIndex="1"
-		>
-			<Link to="/" style={{textDecoration: "none"}}>
-				<Title size="xx-large" margin="0" pad="0 150px 0 0" color="black">
-					Anime
-				</Title>
-			</Link>
-			{children}
-		</Container>
+		<NavContainer>
+			<NavItems>
+				<Link to="/" style={{ textDecoration: "none" }}>
+					<NavTitle size="xx-large" margin="0" pad="0 150px 0 0" color="black">
+						Anime
+					</NavTitle>
+				</Link>
+				{children}
+			</NavItems>
+		</NavContainer>
 	);
 };
 
