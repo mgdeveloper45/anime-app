@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../../Styles/Styles";
-import {Category, Content, Img, Info, Poster, Title } from "../CategoryPage/CatStyles";
+// import { Button } from "../../Styles/Styles";
+import { Blur, Button, Content, Container, Img, Info, ModalT, Poster, Title } from "./ModalStyles";
 
 const Modal = ({singleAnime, categoriesPage, setShowModal}) => {
 	
@@ -13,19 +13,23 @@ const Modal = ({singleAnime, categoriesPage, setShowModal}) => {
 		// 	</Container>
 		// 	<Title margin='30px 0 0 50px' width='300px'color='white' size='30'>{singleAnime?.description}</Title>
 		// </Glass>
-		<Category> 
-			<Poster>
-				<Title>{singleAnime?.canonicalTitle}</Title>
-				<Img src={singleAnime.posterImage?.large}/>
-			</Poster>
-			<Content>
-				<Button>close</Button>
-				<Info>Rating: {singleAnime?.ageRating}</Info>
-				<Info>Description:</Info>
-				<Info>{singleAnime?.description}</Info>
-			</Content> 
-		</Category> 
+		<Container>
+				<ModalT>
+					<Poster>
+						<Title>{singleAnime?.canonicalTitle}</Title>
+						<Img src={singleAnime.posterImage?.small} alt=""/>
+					</Poster>
+					<Content>
+						<Info>Rating: {singleAnime?.ageRating}</Info>
+						<Info>Description:</Info>
+						<Info>{singleAnime?.description}</Info>
+						<Button onClick={()=>setShowModal(false)}>close</Button>
+					</Content>
+				</ModalT>
+			<Blur>
+			</Blur>
+		</Container>
 	);
 };
 
-export default SingleModal;
+export default Modal;

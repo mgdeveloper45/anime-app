@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import YouTube from "react-youtube";
 import { categoriesPage } from '../../utils/utils';
-import { Img, Button, CatContainer, Category, Content, Info, Modal, Poster, Title, Video } from './CatStyles';
+import { Img, Button, Blur, CatContainer, Category,  CatModal,Content, Info, Poster, Title, Video } from './CatStyles';
 
 
 const CategoryPage = ({searchValue}) => {
@@ -31,10 +31,9 @@ const CategoryPage = ({searchValue}) => {
 		},
 	};
     return (
-
         <CatContainer >
             {searchTerm.map((item, idx)=>(
-                <Category onClick={(trailer) =>  
+                <Category  style={{cursor: "pointer"}} onClick={() => 
                     setTrailer(item.video)} key={idx}>
                     <Poster>
                         <Title>{item.title}</Title>
@@ -47,16 +46,17 @@ const CategoryPage = ({searchValue}) => {
                     </Content> 
                 </Category>
             ))}
-            {trailer && (
-                
-                <Modal>
+            {trailer &&(
+                <CatModal>
                     <Video>
                         <YouTube videoId={trailer} opts={opts}/>
                         <Button onClick={()=> setTrailer("")}>X</Button> 
                     </Video>
-                </Modal>
-            )}
+                      <Blur></Blur> 
+                </CatModal>
                 
+                
+            )}
         </CatContainer>
     )
 }
